@@ -1,0 +1,135 @@
+function ReturnNumber(obj) {
+    obj.value = obj.value.replace(/[^0-9]/g, '');
+}
+
+
+function ReturnNumberLen(obj,len) {
+    obj.value = obj.value.replace(/[^0-9]/g, '');	
+
+	if (obj.value != "")
+	{
+		var ValueLen = obj.value.length;
+		if (ValueLen > len)
+		{
+			obj.value = obj.value.substring(0,len)
+		}
+	}
+
+}
+
+
+//@해당폼전체검사용
+function ReturnNumberVal(obj,val) {
+    obj.value = obj.value.replace(/[^0-9]/g, '');
+    
+    if (obj.value == null || obj.value == "" || obj.value == 0) {
+        obj.value = val;
+    }
+    /*
+    alert(isNaN(obj.value));
+    alert($.isNumeric(obj.value));
+    alert(parseInt(obj.val));
+    alert(parseInt("000"));
+    */
+}
+
+//@특수문자 제거
+function SpecialCharRemove(obj) {
+	var val = obj.value;
+	var pattern = /[^(가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z) ]/gi;   // 특수문자 제거
+	if(pattern.test(val)){
+		obj.value = val.replace(pattern,"");
+	}
+}
+
+
+var processImg = new Image();
+processImg.src = "/images/waiting.gif";
+var lang;
+
+function changeToProcess(){
+	var imgLang = "";
+	if (lang == "ja"){
+	imgLang = "ja/";
+	}
+					
+	if (document.all){
+		document.all['checkoutbtn'].innerHTML = "<img src='"+processImg.src+"' name='overItems' id='overItems' border='0'>";
+	} else if (document.layers){
+		document.layers['checkoutbtn'].innerHTML = "<img src='"+processImg.src+"' name='overItems' id='overItems' border='0'>";
+	} else if (document.getElementById){
+		document.getElementById('checkoutbtn').innerHTML = "<img src='"+processImg.src+"' name='overItems' id='overItems' border='0'>";
+	}
+}
+
+//@이메일 형식 체크
+function Emailcheck(obj) {
+	var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;	
+	if(obj.value == "") {
+		alert("이메일을 입력해 주세요.");		
+		return ;
+	}
+	else if (!obj.value.match(regExp)) {
+		alert("올바른 이메일 형식을 입력해 주세요.");
+		return ;
+	} 
+}
+
+
+function FrontErrorLog(ErrorType, Message, Description, Source) {
+    try {
+        $.ajax({
+            type: "POST",
+            data: "ErrorType=" + ErrorType + "&Message=" + Message + "&Description=" + Description + "&Source=" + Source,
+            url: "/Service/LogBase.asp",
+            dataType: "JSON",
+            success: function (data) {               
+            }
+        });
+    }
+    catch (e) {
+
+    }
+}
+
+
+function comma_make(numstring) { //숫자 컴마 찍기
+    var numstr = String(numstring)
+    var re0 = /(\d+),?(\d{3})($|\..*)/
+    if (re0.test(numstr)) {
+        return numstr.replace(re0, function (str, p1, p2, p3) { return comma_make(p1) + "," + p2 + p3 })
+    } else {
+        return numstr
+    }
+}
+
+
+function GetMemberPoint() {
+	var MemberPoint = 0;
+	 try {
+			$.ajax({
+				type: "POST",
+				data: "mode=USE_MEMBER_POINT",
+				url: "/import/OrderAjax.asp",
+				dataType: "JSON",
+				success: function (data) {          
+					if (data.codetype) {
+						MemberPoint = data.msg;
+					} else {
+						MemberPoint = 0;
+				        var log = "Script:default_dev.js:"+data+"/[GetMemberPoint]";
+						FrontErrorLog("Script:default_dev.js", e.message, log, "");
+					}
+				}
+			});
+		}
+		catch (e) {
+			MemberPoint = 0;
+	        var log = "Script:default_dev.js:Error Message: " + e.message + "/Error Name: " + e.name + "/ErrorCode:" + (e.number & 0xFFF) + "/[GetMemberPoint]";
+	        FrontErrorLog("Script:default_dev.js", e.message, log, "");
+		}
+
+		return MemberPoint;
+}
+
+

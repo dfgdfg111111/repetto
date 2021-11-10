@@ -1,0 +1,385 @@
+(function(ssq){
+	var	struc={}, config={}, listener={};
+	var win = ssq(window);
+	ssq(document).ready(function(){ struc.init(); });
+	function trace(a){ var b=""; for(var i=0;i<arguments.length;i++){if(i>0)b+=", ";b+=arguments[i];} try{console.log(b);}catch(e){}}
+	struc = {
+		init : function() {
+			struc.regist(); 
+			struc.pageMethod();
+			listener.start();
+		},
+		regist : function() {
+
+		},
+		pageMethod : function () {
+			skipNavigation();
+			activeGnb();
+			activeCartLayer();
+			wish.init();
+			 familySiteOpen();
+		}
+	};
+	listener = {
+		start : function(){
+			win.bind("resize", listener.resizePage); listener.resizePage();
+			ssq('body').on('click', 'a[href="#"]', function(e){
+				e.preventDefault();
+			});
+		},
+		resizePage : function(e) {
+		}
+	};
+
+	// 스킵네비게이션 접근성 스크립트
+	function skipNavigation() {
+		var skipNavi = ssq('#skipNavi');
+
+		skipNavi.on('click', 'a', function(e){
+			ssq(skipNaviAnchor.attr('href')).attr('tabindex','0').css('outline','0').focus();
+		});
+	}
+
+	// GNB
+	function activeGnb() {
+		var gnb = ssq('#gnb');
+		var stateClass = 'depth_open';
+		var activeClass = 'is_open';
+		var menuActiveClass = 'active';
+		var subMenu = ssq('.depth_list .depth3_list');
+		// gnb-bg 레이어
+		gnb.on('mouseenter', '> ul', function(e) {
+			gnb.addClass(stateClass);
+		});
+		gnb.on('mouseleave', '> ul', function(e) {
+			gnb.removeClass(stateClass);
+		});
+		// gnb depth 열기
+		gnb.on('mouseenter', '.is_depth', function(e) {
+			var that = ssq(this);
+			e.preventDefault();
+			that.addClass(activeClass);
+		});
+		gnb.on('mouseleave', '.is_depth', function(e) {
+			var that = ssq(this);
+			e.preventDefault();
+			that.removeClass(activeClass);	
+		});
+		subMenu.each(function(){
+			var depth3 = ssq(this);
+			depth3.children('li:first').addClass('show');
+			gnb.on('mouseenter', '.depth3_list > li ', function(e) {
+				var that = ssq(this);
+				e.preventDefault();
+				that.addClass(menuActiveClass);
+				depth3.children('li:first').removeClass('show');
+			});
+			gnb.on('mouseleave', '.depth3_list > li', function(e) {
+				var that = ssq(this);
+				e.preventDefault();
+				that.removeClass(menuActiveClass);	
+				depth3.children('li:first').addClass('show');
+				
+			});
+		});
+		
+		
+
+	}
+
+	function activeCartLayer() {
+		var wrap = ssq('.cart_layer_wrap');
+		var activeClass = 'is_open';
+
+		wrap.on({
+			'mouseenter': function() {
+				wrap.addClass(activeClass);
+			},
+			'mouseleave': function() {
+				wrap.removeClass(activeClass);
+			}
+		});
+	}
+
+	//// 알도의 위시 기능
+	var wish = {
+		list : null, curr:null, 
+		init : function() {
+			wish.list = ssq(".wish[data-wish]");
+			ssq(document).on("click", ".wish[data-wish]", function(e){
+				e.preventDefault();
+				var obj = ssq(this), pno = obj.attr("data-wish");
+				wish.changeWish(obj, pno);
+			});
+			wish.count.init();
+		},
+		resetCss:function(obj, newCss) {
+			trace("resetCss", obj, newCss);
+			obj.removeClass("wish_on")
+				.removeClass("wish_off")
+				.removeClass("wish_change_on")
+				.removeClass("wish_change_off")
+				.removeClass("wish_change_plus_s")
+				.removeClass("wish_change_plus")
+				.removeClass("wish_change_minus_e")
+				.removeClass("wish_change_minus")
+				.addClass(newCss);
+		},
+		changeWish:function(obj,pno,scate,pprice,psize) {
+			wish.curr = obj;
+			var strQuery;
+			var url;
+			var elementname;
+			psize = psize == undefined ? "" : psize ;
+		
+			document.form2.ProductNo.value = pno;
+			document.form2.suzzestcategory.value = scate;
+			document.form2.ProductPrice.value = pprice;
+			document.form2.ProductSize.value = psize;
+		
+			strQuery = jQuery(":input", document.form2).serialize();
+			url = "/product/put_wishlist.asp?rand=" + Math.random() + "&" + strQuery  + "&" + new Date().getTime(); 
+		
+		    var reqObj;
+		    reqObj=initXMLHttp();
+			reqObj.open("GET",url,true);
+		    reqObj.onreadystatechange = function() {
+		
+		      if(reqObj.readyState == 4) {
+		          if(reqObj.status==200) {
+					eval("var response = (" + reqObj.responseText + ")");
+		
+					for(var i = 0; i < response.length;i++){				
+						switch(response[i].title){
+							case "type":
+								type = response[i].value;
+								break;
+							case "total_qty":
+								total_qty = response[i].value;
+								break;
+							default:
+								break;
+						}
+					}
+		
+					if (type=='add') {
+						countRefresh();
+						wish.resetCss(wish.curr, "wish_change_on");
+						wish.count.change("add");
+					}
+					else if(type=='remove') {
+						countRefresh();
+						wish.resetCss(wish.curr, "wish_change_off");
+						wish.count.change("remove");
+						setTimeout(function(){
+							jQuery(".wishbbs" + pno).fadeOut()
+						},2000);
+					}
+					else if(type=='nothing') {
+						alert("존재하지않는제품입니다.");						
+					}
+					else if(type=='error') {
+						alert("시스템오류입니다 [err03]");
+					}	
+					else if(type=='login') {
+						loginChk();
+					}	
+		          }
+		      }
+		    }
+			reqObj.send(null);
+		},
+		count : { 							// 상단 글로벌 영역의 위시항목 카운트 부분
+			con : null, aniType : null, num: null,
+			init : function() {
+				wish.count.con = ssq("#wishCnt").find(".wish");
+				wish.count.num = ssq("#wishCnt").find(".num");
+				if (wish.count.num.html() == "0") wish.resetCss(wish.count.con, "wish_off");
+				else wish.resetCss(wish.count.con, "wish_on");
+			},
+			change : function(wishType) {
+				wish.count.aniType = wishType;
+				jQuery.ajax({
+					type: "GET",
+					url: "/order/cart_wish_cnt.asp",
+					data: {
+						rand : new Date().getTime()
+					},    
+					dataType : "JSON",
+					success: function(data) {
+						var wishCnt = data.wish;
+						//var cartCnt = data.cart + itemtext;
+						wish.count.changeAni(Number(wishCnt));
+						wish.count.num.html(wishCnt);
+						jQuery(".wishlistCnt").html(wishCnt + "개");
+						//jQuery("#btnOpenCart").html(cartCnt);
+					},
+					error: function(e) {
+						
+					}
+				});
+			},
+			changeAni : function(cnt) {
+				if (wish.count.aniType == "add") {
+					if (cnt == 1) wish.resetCss(wish.count.con, "wish_change_plus_s");
+					else {
+						wish.resetCss(wish.count.con, "wish_on");
+						setTimeout(function(){wish.resetCss(wish.count.con, "wish_change_plus");}, 100);
+					}
+				} else {
+					if (cnt == 0) wish.resetCss(wish.count.con, "wish_change_minus_e"); 
+					else  {
+						wish.resetCss(wish.count.con, "wish_on");
+						setTimeout(function(){wish.resetCss(wish.count.con, "wish_change_minus");}, 100);
+					}
+				}
+			}
+		}
+	};
+
+// familySiteOpen
+	function familySiteOpen(){
+		var btnFamily = jQuery('.btn-family');
+		var btnFamilyClose = jQuery('.family-box--top a');		
+		var winW = jQuery(window).width();
+
+		
+		btnFamily.on('click', function(e){
+			jQuery('.f-familysite').toggleClass('open');
+
+			return false;
+		});
+		
+		btnFamilyClose.on('click', function(e){
+			jQuery('.f-familysite').removeClass('open');
+
+			return false;
+		});
+	}
+
+})(jQuery);
+
+jQuery(function(){
+	var printField = jQuery(".f_insta_list");
+
+	if ( printField )	{
+		jQuery.ajax({
+			"url" : "//service.stylecomment.com/ExtFeed/repetto/instagram2.asp",
+			dataType : "jsonp",
+			jsonp : "callback",
+			"success" : function(d){
+				var data = (d.data);
+
+				if (data != undefined) {
+					var printData = "";	
+					jQuery.each(data,function(n,o){
+						if(n <= 5){
+//							var dateTime = new Date(o.created_time * 1000);
+//							try{
+//								var dt = dateTime.toISOString().substring(0,10);
+//							}catch(e){
+//								var dt = dateTime;
+//							}
+							//o.images.thumbnail.url //o.images.low_resolution.url //o.images.standard_resolution.url
+							//printData += '<li><a href="' + o.link + '" target="_blank"><img src="' + o.images.standard_resolution.url +'" width="" class="autofit"></a></li>';
+							if(o.media_type === "VIDEO"){
+								image_url = o.thumbnail_url;
+							}else{
+								image_url = o.media_url;
+							}
+							printData += '<li>';
+							printData += '	<a href="'+ o.permalink +'" target="_blank" " style="overflow: hidden;">';
+							printData += '		<img src="' + image_url + '" alt="" onError="this.style.display=none"/>';
+							printData += '	</a>';
+							printData += '</li>';
+							
+						}
+					})
+					printField.html(printData);
+
+					jQuery(".f_insta_list li").css("height", jQuery(".f_insta_list li").width() + "px");
+
+					jQuery(".f_insta_list li").css("overflow", "hidden");
+				}
+			}
+		})
+	}
+})
+
+function searchRun3() {
+	var gnbFormObj = document.searchForm3;
+
+	if(gnbFormObj.searchItem.value=="") {
+		alert("검색어를 입력하세요");
+		gnbFormObj.searchItem.value = "";
+		gnbFormObj.searchItem.focus();
+		return false;
+	} else {
+		gnbFormObj.action="/product/search.asp";
+		gnbFormObj.submit();		
+	}
+}
+
+function countRefresh() {
+
+	jQuery.ajax({
+		type: "GET",
+		url: "/order/cart_wish_cnt.asp",
+		data: {
+			rand : new Date().getTime()
+		},    
+		dataType : "JSON",
+		success: function(data) {
+			var val1 = "";
+			
+			jQuery(".h_wish > a > span").removeClass("wish_on");
+			jQuery(".h_wish > a > span").removeClass("wish_off");
+			
+			if (data.wish > 0) {
+				jQuery(".h_wish > a > span").addClass("wish_on");
+			}
+			else {
+				jQuery(".h_wish > a > span").addClass("wish_off");
+			}
+			var val2 = data.cart;
+			jQuery("#wishCnt").html(data.wish);
+			jQuery(".cart_layer_btn").html(val2);
+		},
+		error: function(e) {
+			//alert("e");
+		}
+	}); 
+}
+
+function initXMLHttp() 
+{
+  var xmlHttp = false;
+        
+  if (window.XMLHttpRequest) { // Mozilla, Safari,...
+     xmlHttp = new XMLHttpRequest();
+     if (xmlHttp.overrideMimeType) {
+     	// set type accordingly to anticipated content type
+        //xmlHttp.overrideMimeType('text/xml');
+        xmlHttp.overrideMimeType('text/html');
+     }
+  } else if (window.ActiveXObject) { // IE
+     try {
+        xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+     } catch (e) {
+        try {
+           xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch (e) {}
+     }
+  }
+  if (!xmlHttp) {
+     alert('Cannot create XMLHTTP instance');
+     return false;
+  }
+    return xmlHttp;
+}  
+
+
+function loginChk() {
+	alert('로그인후 이용해주세요');
+	top.location.href = '/member/login.asp?refferUrl=' + escape(location.href);
+}

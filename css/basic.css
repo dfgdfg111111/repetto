@@ -1,0 +1,382 @@
+@charset "UTF-8";
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&display=swap');
+/*초기화*/
+* { margin:0; padding:0; }
+li { list-style:none; }
+a { text-decoration:none; }
+img { border:0; vertical-align:bottom; }
+body { font-family:'Malgun Gothic','Kaisei HarunoUmi', sans-serif; box-sizing: border-box; }
+h2 { font-family:'Kaisei HarunoUmi',sans-serif ;  font-size:40px; text-align:center; font-weight:normal; color: #000; margin-top: 10px;}
+h3 {display: none;}
+
+/* 헤더 */
+header { position:fixed; top:0; left:0; width:100%;background-color:rgb(255, 255, 255);   height:80px; z-index: 1000; }/*rgba(255, 252, 252, 0.7);*/
+
+header h1 { float: left; margin-left: 200px; margin-top: 20px;    }
+header #nav { float: right; margin-right:200px; bottom:-10px; }
+header #nav li { float:left; padding:0 30px; line-height:90px;}
+header #nav a { color:#080504; font-size:18px; font-family:'Nanumsquare', sans-serif ;}
+header #nav a.on { text-decoration:underline 3px solid rgb(255, 214, 214);}
+
+section { height:100vh; margin: auto;  } 
+
+
+/* 슬라이더 */
+.slider { position:absolute; width:100%; height:80%; top:160px; display:block;  }
+.sliders {position: absolute;  height: 100%;}
+.sliders img {width: 100%;}  
+/*#section01 h1 { font-size:inherit; } 부모요소를 상속받음, h1이 아니라 기본폰트크기*/
+
+
+/*slick 슬라이더 커스텀*/
+.slick-arrow { position:absolute; top:40%; border:0; text-indent:-9999px;  z-index:10;width: 54px; height: 54px; cursor:pointer; }
+.slick-prev {left:20px; background:url('../img/l_btn\ s.png') no-repeat ;  }
+.slick-next{right:20px;  background:url('../img/r_btn\ s.png') no-repeat;  }
+
+.slick-dots { position:relative;  z-index:11; padding-left: 47.5%; bottom:-10px;  }
+.slick-dots li { float:left; width:10px; height:10px; border:2px solid rgb(255,214,214);  border-radius:50%; margin-right:8px; cursor:pointer;margin: 5px; }
+.slick-dots li button { display: none;}
+.slick-dots li.slick-active{ background:rgb(255,214,214); }/*#faf8f8*/
+
+.sliderBtn {display: none;}
+
+
+/* 섹션 */
+
+section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우저 세로길와 딱 맞게된다*/
+
+#section01 {width: 100% ;height: 100vh;  }
+
+#section02 { width:1600px; margin:5px auto; padding: 5px; text-align: center; }
+#section02 li { display:inline-block; width:33.3%;  margin:0 0 0 -4px; vertical-align:top;}
+
+/*float:left대신에 inline-block을 쓰면 중간에 여백이 생긴다(해결책:margin-left에 마이너스값을 넣는다 / font-size:0을 ul이나 li에 넣는다. li사이 여백이 없게 됨)*/
+
+
+  .item { padding:0 10px}
+  .item .item_img { text-align:center; transition:0.5s ease;}
+  .item .item_img img {width:275px; }
+  .item .item_info{ padding-top:5px; text-align:center; }
+  .item .item_info .title{ display:block; font-size:17px; color:rgb(230, 130, 130); font-weight: bold; margin-bottom:10px; }
+  .item .item_info .name{ color:#000000; font-size: 16PX; font-weight: bold; }
+  .item .item_info .name2{display:block; margin:15px 0 5px;font-size: 16PX;color:#000; }
+  .item .item_info .cart { all:unset; font-size:13px; font-weight: bold; color: #000; text-decoration:underline  solid rgb(230, 130, 130);   transition:0.5s ease; opacity:0; }
+
+  .item:hover .item_img {}
+  .item:hover .item_info .cart { opacity: 1;}
+
+#section03 {height: 100vh; position: relative;}
+
+
+  .story_ban { display: block; margin: 100px auto;  }
+  .img_box {position:absolute;display: inline-block; margin:10px 100px 0 ;display:inline-block;   }
+  .story_ban .img {}
+  .story_ban .img:hover {transform:scale(1.0); opacity:0.8; }
+  .story_ban .img img{  transition:all 0.5s ease;}
+  
+ 
+
+  .ban_txt {position: absolute; right: 5%; top:15%;  width:450px; }
+  .story_ban .kor_tit { color:#000000;font-family: 'Kaisei HarunoUmi',sans-serif ; font-size:35px; margin-bottom:10px;  letter-spacing:0.2px; }
+  .story_ban .kor_txt {font-size:17px; color:#6e6d6d; line-height: 28px; margin:30px 0 30px; letter-spacing:-2px;}
+  .story_ban .kor_txt_more { background: #f0afaf; color: #fff; width:140px; height:45px; line-height:45px; text-align: center;font-size:14px; }
+
+  .story_ban .kor_txt_more:hover { background: #fff; cursor:pointer; color: #f0afaf; border: 1px solid #f0afaf; transition:0.5s} 
+  
+  
+#section04 {  height: 100vh;}
+  .video { text-align: center; padding: 100px; }
+
+/*#section04 h1 { font-size:10vw; }   vw(Viewport Width) :뷰포트 너비를 100으로 두고 설정  */ 
+ /*#section05 h1 { font-size:10vh; }  vh(Viewport height) :뷰포트의 세로를 100*/
+
+/**
+#btn_box { position:fixed; right:30px; top:50%; transform:translateY(-50%); }
+#btn_box ul {}
+#btn_box li { margin:10p 0 ;}
+#btn_box a { display:block; width:20px; height:20px; background:rgba(0,0,0,0.3);  border-radius:10px; text-indent:-9999px;} 
+#btn_box li.on a { background:rgba(0,0,0,1)}
+**/
+#section05 {background-color: #fcf2f2; position: relative;height: 100vh; }
+  .inner {width: 700px;  float: right; position: absolute; right: 35px; top:180px; box-sizing: border-box;}
+  .img5 img {height: 100vh;}
+  h4,h5,h6{color:#000000; background-color: #fff; border:none;font-family: 'Kaisei HarunoUmi',sans-serif ; font-size: 30px; padding: 10px; text-align: center; }
+  .box_txt {color:#6e6d6d; padding: 10px; }
+  .inner_txt:hover { background: rgba(241, 160, 160, 0.212); cursor:pointer; transition:0.5s} 
+  .inner_txt2:hover { background: rgba(241, 160, 160, 0.212); cursor:pointer; transition:0.5s} 
+  .inner_txt3:hover { background: rgba(241, 160, 160, 0.212); cursor:pointer; transition:0.5s} 
+
+
+  .back {position: absolute; bottom: 10%; right: 5%; border: none; width: 40px; height: 40px; background-color:#f0afaf; border-radius:50%; padding: 5px; }
+  .back a {color: #fff;font-size: 13px;}
+  .f{text-align: center; }
+  .f a {color: #000;}
+/*footer button {  border:0; background:transparent; line-height:50px; cursor:pointer}/*
+  
+  
+
+
+
+ 
+
+
+
+
+/************* 반응형 테블릿(화면 너비가 1440px 보다 작을때) **********/
+@media (max-width:1440px){  
+  
+  body { font-family:'Malgun Gothic','Kaisei HarunoUmi', sans-serif; box-sizing: border-box; width: 100%; overflow-x: hidden; }
+  h2 {font-family:'Kaisei HarunoUmi',sans-serif ;  font-size:30px; text-align:center; font-weight:normal; color: #000;}
+  h3 {position: absolute; top:20px; left: 20%; display: block;}
+  /* 헤더 */
+  header { position:fixed; top:0; left:0; width:100%;background-color:#f0afaf;   height:80px; }/*rgba(255, 252, 252, 0.7);*/
+  
+  header h1 {display: none;}
+  
+
+  
+  header #nav {float: right; }
+  header #nav li {position: relative; padding:0 18px; line-height:75px;}
+  header #nav a { color:#080504; font-size:16px; }
+  header #nav a.on { color:none; text-decoration:underline 3px solid #fff; }
+  
+/* 슬라이더 */  
+  .slider { position:absolute; width:100%; height: 70%; top:20%;   }
+  .sliders {position: absolute;  height: 100%;  }
+  .sliders img {  width: 100%;}  
+
+/* slick 슬라이더 커스텀*/
+  .slick-arrow { position:absolute; top:40%; border:0; text-indent:-9999px;  z-index:10;  cursor:pointer; }
+  .slick-prev {left:20px; background:url('../img/l_btn1.png') no-repeat ;  }
+  .slick-next{right: -20px;  background:url('../img/r_btn\ 1.png') no-repeat;  }
+
+  .slick-dots { position:absolute;  z-index:11; padding-left: 47.5%; bottom:10%; }
+  .slick-dots li { float:left; width:10px; height:10px;  border:2px solid rgb(255,214,214);  border-radius:50%; margin-right:8px; cursor:pointer;   }
+  .slick-dots li button { all:unset; text-indent:-999px;}
+  .slick-dots li.slick-active{ background:rgb(255,214,214); }/*#faf8f8*/
+
+  .sliderBtn {display: none;}
+  .sliderBtn.on {display: none;}
+
+/* 섹션 */ 
+  #section {height:100vh;  }
+  
+  #section02 { width:1300px; margin:20px auto; padding: 10px; text-align: center; }
+  #section02 li { display:inline-block; width:33.3%;  margin:0 0 70px -4px; vertical-align:top;}
+  
+  .item { padding:0 5px}
+  .item .item_img { text-align:center; transition:0.5s ease;}
+  .item .item_img img {width:200px; }
+  .item .item_info{ padding-top:5px; text-align:center; }
+  .item .item_info .title{ display:block; font-size:15px; color:rgb(230, 130, 130); font-weight: bold; margin-bottom:10px; }
+  .item .item_info .name{ color:#000000; font-size: 14PX; font-weight: bold; }
+  .item .item_info .name2{display:block; margin:15px 0 5px;font-size: 14PX;color:#000; }
+  .item .item_info .cart { all:unset; font-size:13px; font-weight: bold; color: #000; text-decoration:underline  solid rgb(230, 130, 130);   transition:0.5s ease; opacity:0; }
+
+  .item:hover .item_img {}
+  .item:hover .item_info .cart { opacity: 1;}
+
+  #section03 {position: relative;}
+
+
+  .story_ban { width:1300px; margin: 20px auto; left: 0;  }
+  .img_box {position:absolute;display: inline-block; top:10%; margin:15px 100px 0 ;   }
+  .story_ban .img { display:inline-block;  vertical-align: middle ;   }
+  .story_ban .img img {width: 650px;}
+  .story_ban .img:hover {transform:scale(1.0); opacity:0.8; }
+  .story_ban .img { overflow:hidden;}
+  .story_ban .img img{ transition:all 0.5s ease;}
+
+  
+  .story_ban .ban_txt { float: right; display: inline-block; width:450px; padding:80px 0 0 60px;  box-sizing:border-box;}
+  .story_ban .kor_tit { color:#000000;font-family: 'Kaisei HarunoUmi',sans-serif ; font-size:35px; margin-bottom:10px;  letter-spacing:0.2px; }
+  .story_ban .kor_txt {font-size:16px; color:#6e6d6d; line-height: 28px; margin:30px 0 30px; letter-spacing:-2px;}
+  .story_ban .kor_txt_more { background: #f0afaf; color: #fff; width:140px; height:45px; line-height:45px; text-align: center;font-size:14px; }
+
+  .story_ban .kor_txt_more:hover { background: #fff; cursor:pointer; color: #f0afaf; border: 1px solid #f0afaf; transition:0.5s}
+
+  #section04 {position: relative;}
+  .video a { top:150px; margin: auto;}
+
+
+
+  #section05 {background-color: #fcf2f2; position: relative;}
+  
+  
+  .img5 img {height: 100vh; width: 50%;}
+  .inner {display: inline-block; width: 500px; position: absolute; right: 7%; top:100px; }
+  h4,h5,h6{ color:#000000; background-color: #fff; border:none; font-family: 'Kaisei HarunoUmi',sans-serif ; font-size: 23px; padding: 10px;}
+  .box_txt {}
+  
+  
+} 
+  
+  
+
+/* 화면 너비가 1025px보다 작을때 
+@media (max-width:1024px){
+ 
+ header {background-color: turquoise;}
+
+ h1 { position:fixed; top:0; left:0; width:100%;  height:60px;}
+ header h1 img {position: absolute;  height: 30px; }
+ h3 {position: absolute;top:25px; }
+ header #nav {}
+ header #nav li {  padding:0 10px;line-height: 75px; }
+ header #nav a { color:#080504; font-size:15px;  }
+ header #nav a.on { text-decoration:underline 3px solid #fff; }
+ header #nav li:nth-of-type(4) {display: none;}
+ 
+.slider { position:absolute; width:100%; height: 70%; top:30%;   }
+
+
+
+ slick 슬라이더 커스텀
+ .slick-arrow { position:absolute; top:30%; border:0; text-indent:-9999px;  z-index:10;  cursor:pointer; }
+
+ .slick-dots { position:absolute;  z-index:11; padding-left: 45%; bottom:30%; }
+ 
+ .sliderBtn {display: none;}
+ .sliderBtn.on {display: none;}
+
+
+ 섹션 
+#section {height:100vh;  }
+  
+#section02 { width:850px; margin:20px auto; padding: 10px; text-align: center; }
+#section02 li { display:inline-block; width:33.3%;  margin:0 0 70px -4px; vertical-align:top;}
+
+.item { padding:0 5px}
+.item .item_img { text-align:center; transition:0.5s ease;}
+.item .item_img img {width:200px; }
+.item .item_info{ padding-top:5px; text-align:center; }
+.item .item_info .title{ display:block; font-size:15px; color:rgb(230, 130, 130); font-weight: bold; margin-bottom:10px; }
+.item .item_info .name{ color:#000000; font-size: 14PX; font-weight: bold; }
+.item .item_info .name2{display:block; margin:15px 0 5px;font-size: 14PX;color:#000; }
+.item .item_info .cart { all:unset; font-size:13px; font-weight: bold; color: #000; text-decoration:underline  solid rgb(230, 130, 130);   transition:0.5s ease; opacity:0; }
+
+.item:hover .item_img {}
+.item:hover .item_info .cart { opacity: 1;}
+
+#section03 {position: relative;}
+
+
+
+
+.story_ban .ban_txt {position: absolute; left: 90%; width:400px; padding:20px 0 0 0px;  border: 1px solid red;}
+.story_ban .kor_tit {  font-size:30px; margin-bottom:10px;  letter-spacing:0.2px; }
+.story_ban .kor_txt {font-size:15px; color:#6e6d6d; line-height: 28px; margin:10px 0 30px; letter-spacing:-2px;}
+.story_ban .kor_txt_more { background: #f0afaf; color: #fff; width:120px; height:35px; line-height:35px; text-align: center;font-size:13px; }
+
+
+#section04 {display: none;}
+.video a { top:150px; margin: auto;}
+
+
+
+#section05 {background-color: #fcf2f2; position: relative;}
+
+
+.img5 img {height: 100vh; width: 50%;}
+.inner {display: inline-block; width: 500px; position: absolute; right: 7%; top:100px; }
+h4,h5,h6{ color:#000000; background-color: #fff; border:none; font-family: 'Kaisei HarunoUmi',sans-serif ; font-size: 23px; padding: 10px;}
+.box_txt {}
+
+
+}*/
+
+
+
+
+
+/************ 반응형 모바일 **************/
+@media (max-width:768px) {
+
+body {width: 100%; overflow-x: hidden;}
+ /* 헤더 */
+header { position:fixed; top:0; left:0; width:100%;background-color:#f0afaf;   height:60px; z-index: 1000; }/*rgba(255, 252, 252, 0.7);*/
+
+header h1 {float: left; width: 20px;  margin-left: 50px; margin-top: 20px; }
+header h1 img {position: absolute;  height: 30px; }
+h3 {position: absolute;top:15px; }
+header #nav {float: right; margin-right: 50px;}
+header #nav li {  padding:0 10px;line-height: 60px; }
+header #nav a { color:#080504; font-size:13px;  }
+header #nav a.on { text-decoration:underline 3px solid rgb(255, 214, 214); }
+header #nav li:nth-of-type(4) {display: none;}
+
+/* 슬라이더 */  
+.slider { position:absolute; width:100%; height: 60%; top:20%;  }
+.sliders {position: absolute;  height: 100%;  }
+.sliders img {  width: 100%; height: 400px;}  
+
+/* slick 슬라이더 커스텀*/
+.slick-arrow {display: none; }
+.slick-prev {display: none; }
+.slick-next{ display: none;}
+
+.slick-dots { position:absolute;  z-index:11; left:-10% ; bottom:15%; }
+.slick-dots li { float:left; width:5px; height:5px;  border:2px solid rgb(255, 255, 255);  border-radius:50%; margin-right:8px; cursor:pointer;   }
+.slick-dots li button { all:unset; text-indent:-999px;}
+.slick-dots li.slick-active{ background:rgb(255, 255, 255); }/*#faf8f8*/
+
+.sliderBtn {display: none;}
+
+/* 섹션 */ 
+#section {height:100vh;  }
+  
+#section02 {width: 100%;  margin:100px auto; padding: 10px; text-align: center; }
+#section02 li {display:inline-block; width:33.3%;  margin:0 0 100px -4px; vertical-align:top; }
+h2 { margin:20px 0 ; font-size: 20px;}
+.item { padding:0 5px}
+.item .item_img { text-align:center; transition:0.5s ease;}
+.item .item_img img {width:100px; }
+.item .item_info{ padding-top:5px; text-align:center; }
+.item .item_info .title{ display:block; font-size:15px; color:rgb(230, 130, 130); font-weight: bold; margin-bottom:10px; }
+.item .item_info .name{ color:#000000; font-size: 14PX; font-weight: bold; }
+.item .item_info .name2{display:block; margin:15px 0 5px;font-size: 14PX;color:#000; }
+.item .item_info .cart { all:unset; font-size:13px; font-weight: bold; color: #000; text-decoration:underline  solid rgb(230, 130, 130);   transition:0.5s ease; opacity:0; }
+
+
+
+
+#section03 {position: relative; }
+
+
+.story_ban { overflow: hidden; }
+.img_box {position:absolute; top:10%; margin:0 80px 0 ; border: 1px solid red;  }
+
+.story_ban .img img { width: 300px;  }
+.story_ban .img:hover {transform:scale(1.0); opacity:0.8; }
+.story_ban .img { overflow:hidden;}
+.story_ban .img img{ transition:all 0.5s ease;}
+
+
+.story_ban .ban_txt { position: absolute;  width: 300px; padding-top:0 ; padding-left: 0; top:50%; left: 16.5%;border: 1px solid red;  }
+.story_ban .kor_tit {text-align: center; color:#000000;font-family: 'Kaisei HarunoUmi',sans-serif ; font-size:20px;   letter-spacing:0.2px; }
+.story_ban .kor_txt {font-size:14px; color:#6e6d6d; }
+.story_ban .kor_txt_more {margin: 0 auto; background: #f0afaf; color: #fff; width:60px; height:28px; line-height:28px; text-align: center;font-size:12px; }
+
+.story_ban .kor_txt_more:hover { background: #fff; cursor:pointer; color: #f0afaf; border: 1px solid #f0afaf; transition:0.5s}
+
+#section04 {display: none;}
+
+
+
+
+#section05 {background-color: #fcf2f2; position: relative;}
+
+
+.img5 img {height: 100vh; width: 100%;}
+.inner {display: inline-block; width: 300px; right: 15%; position: absolute;  top:10%; }
+h4,h5,h6{ color:#000000; background-color: #fff; border:none; font-family: 'Kaisei HarunoUmi',sans-serif ; font-size: 15px; padding: 10px;}
+.box_txt {font-size: 13px;}
+ 
+.f {font-size: 10px;}
+
+
+
+}
+
+
