@@ -7,7 +7,7 @@ li { list-style:none; }
 a { text-decoration:none; }
 img { border:0; vertical-align:bottom; }
 body { font-family:'Malgun Gothic','Kaisei HarunoUmi', sans-serif; box-sizing: border-box; }
-h2 { font-family:'Kaisei HarunoUmi',sans-serif ;  font-size:40px; text-align:center; font-weight:normal; color: #000; margin-top: 10px;}
+
 h3 {display: none;}
 
 /* 헤더 */
@@ -49,6 +49,7 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
 #section01 {width: 100% ;height: 100vh;  }
 
 #section02 { width:1600px; margin:5px auto; padding: 5px; text-align: center; }
+#section02 h2 { font-family:'Kaisei HarunoUmi',sans-serif ;  font-size:40px; text-align:center; font-weight:normal; color: #000; margin-top: 10px;}
 #section02 li { display:inline-block; width:33.3%;  margin:0 0 0 -4px; vertical-align:top;}
 
 /*float:left대신에 inline-block을 쓰면 중간에 여백이 생긴다(해결책:margin-left에 마이너스값을 넣는다 / font-size:0을 ul이나 li에 넣는다. li사이 여백이 없게 됨)*/
@@ -63,24 +64,24 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   .item .item_info .name2{display:block; margin:15px 0 5px;font-size: 16PX;color:#000; }
   .item .item_info .cart { all:unset; font-size:13px; font-weight: bold; color: #000; text-decoration:underline  solid rgb(230, 130, 130);   transition:0.5s ease; opacity:0; }
 
-  .item:hover .item_img {}
+ 
   .item:hover .item_info .cart { opacity: 1;}
 
 #section03 {height: 100vh; position: relative;}
 
 
-  .story_ban { display: block; margin: 100px auto;  }
-  .img_box {position:absolute;display: inline-block; margin:10px 100px 0 ;display:inline-block;   }
-  .story_ban .img {}
+  .story_ban {width: 100%; height: 100%; display: block; overflow: hidden;  }
+  .img_box {position:absolute;display: inline-block; margin: 50px ;}
+  
   .story_ban .img:hover {transform:scale(1.0); opacity:0.8; }
   .story_ban .img img{  transition:all 0.5s ease;}
   
  
 
-  .ban_txt {position: absolute; right: 5%; top:15%;  width:450px; }
-  .story_ban .kor_tit { color:#000000;font-family: 'Kaisei HarunoUmi',sans-serif ; font-size:35px; margin-bottom:10px;  letter-spacing:0.2px; }
-  .story_ban .kor_txt {font-size:17px; color:#6e6d6d; line-height: 28px; margin:30px 0 30px; letter-spacing:-2px;}
-  .story_ban .kor_txt_more { background: #f0afaf; color: #fff; width:140px; height:45px; line-height:45px; text-align: center;font-size:14px; }
+  .ban_txt {position: absolute; right: 12%; top:25%;   width:450px;}
+  .kor_tit { color:#000000;font-family: 'Kaisei HarunoUmi',sans-serif ; font-size:35px; margin-bottom:10px;  letter-spacing:0.2px; }
+  .kor_txt {font-size:17px; color:#6e6d6d; line-height: 28px; margin:30px 0 30px; letter-spacing:-2px;}
+  .kor_txt_more { background: #f0afaf; color: #fff; width:140px; height:45px; line-height:45px; text-align: center;font-size:14px; }
 
   .story_ban .kor_txt_more:hover { background: #fff; cursor:pointer; color: #f0afaf; border: 1px solid #f0afaf; transition:0.5s} 
   
@@ -88,47 +89,38 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
 #section04 {  height: 100vh;}
   .video { text-align: center; padding: 100px; }
 
-/*#section04 h1 { font-size:10vw; }   vw(Viewport Width) :뷰포트 너비를 100으로 두고 설정  */ 
- /*#section05 h1 { font-size:10vh; }  vh(Viewport height) :뷰포트의 세로를 100*/
-
-/**
-#btn_box { position:fixed; right:30px; top:50%; transform:translateY(-50%); }
-#btn_box ul {}
-#btn_box li { margin:10p 0 ;}
-#btn_box a { display:block; width:20px; height:20px; background:rgba(0,0,0,0.3);  border-radius:10px; text-indent:-9999px;} 
-#btn_box li.on a { background:rgba(0,0,0,1)}
-**/
-#section05 {background-color: #fcf2f2; position: relative;height: 100vh; }
-  .inner {width: 700px;  float: right; position: absolute; right: 35px; top:180px; box-sizing: border-box;}
-  .img5 img {height: 100vh;}
-  h4,h5,h6{color:#000000; background-color: #fff; border:none;font-family: 'Kaisei HarunoUmi',sans-serif ; font-size: 30px; padding: 10px; text-align: center; }
+#section05 {background-color: #fcf2f2; position: relative;}
+  
+  
+  .img5 img {height: 100vh; width: 50%;}
+  .inner {display: inline-block; width: 500px; position: absolute; right: 10%; top:100px; }
+  #section05 h4 { color:#000000;text-align: center; background-color: #fff; border:none; font-family: 'Kaisei HarunoUmi',sans-serif ; font-size: 23px; padding: 15px;}
+  #section05 h5  { color:#000000;text-align: center;  background-color: #fff; border:none; font-family: 'Kaisei HarunoUmi',sans-serif ; font-size: 23px; padding: 15px;}
+  #section05 h6 { color:#000000;text-align: center;  background-color: #fff; border:none; font-family: 'Kaisei HarunoUmi',sans-serif ; font-size: 23px; padding: 15px;}
+  .box_txt { font-family:'Nanumsquare', sans-serif ; font-size: 18px;letter-spacing: 1px;  padding: 5px;}
   .box_txt {color:#6e6d6d; padding: 10px; }
-  .inner_txt:hover { background: rgba(241, 160, 160, 0.212); cursor:pointer; transition:0.5s} 
-  .inner_txt2:hover { background: rgba(241, 160, 160, 0.212); cursor:pointer; transition:0.5s} 
-  .inner_txt3:hover { background: rgba(241, 160, 160, 0.212); cursor:pointer; transition:0.5s} 
+  .inner_txt:hover { background: #f0afaf73; cursor:pointer; transition:0.5s} 
+  .inner_txt2:hover { background: #f0afaf73; cursor:pointer; transition:0.5s} 
+  .inner_txt3:hover { background: #f0afaf73; cursor:pointer; transition:0.5s}
 
-
-  .back {position: absolute; bottom: 10%; right: 5%; border: none; width: 40px; height: 40px; background-color:#f0afaf; border-radius:50%; padding: 5px; }
-  .back a {color: #fff;font-size: 13px;}
-  .f{text-align: center; }
-  .f a {color: #000;}
-/*footer button {  border:0; background:transparent; line-height:50px; cursor:pointer}/*
+  .back {position: absolute; bottom: 10%; right: 5%; border: none; width: 50px; height: 50px; background-color:#f0afaf; border-radius:50%; padding: 5px; }
+  .back a {color: #fff;font-size: 13px; }
   
-  
-
-
-
+  .f  {font-size: 15px; text-align: center;}
  
+  
 
 
 
+  
 
 /************* 반응형 테블릿(화면 너비가 1440px 보다 작을때) **********/
 @media (max-width:1440px){  
   
   body { font-family:'Malgun Gothic','Kaisei HarunoUmi', sans-serif; box-sizing: border-box; width: 100%; overflow-x: hidden; }
   h2 {font-family:'Kaisei HarunoUmi',sans-serif ;  font-size:30px; text-align:center; font-weight:normal; color: #000;}
-  h3 {position: absolute; top:20px; left: 20%; display: block;}
+  h3 {position: absolute; top:20px; left: 7%; display: block;}
+  
   /* 헤더 */
   header { position:fixed; top:0; left:0; width:100%;background-color:#f0afaf;   height:80px; }/*rgba(255, 252, 252, 0.7);*/
   
@@ -136,7 +128,7 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   
 
   
-  header #nav {float: right; }
+  header #nav {float: right;clear: both; margin-right: 100px; }
   header #nav li {position: relative; padding:0 18px; line-height:75px;}
   header #nav a { color:#080504; font-size:16px; }
   header #nav a.on { color:none; text-decoration:underline 3px solid #fff; }
@@ -151,10 +143,10 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   .slick-prev {left:20px; background:url('../img/l_btn1.png') no-repeat ;  }
   .slick-next{right: -20px;  background:url('../img/r_btn\ 1.png') no-repeat;  }
 
-  .slick-dots { position:absolute;  z-index:11; padding-left: 47.5%; bottom:10%; }
-  .slick-dots li { float:left; width:10px; height:10px;  border:2px solid rgb(255,214,214);  border-radius:50%; margin-right:8px; cursor:pointer;   }
+  .slick-dots {display: none; }
+  .slick-dots li {display: none;  }
   .slick-dots li button { all:unset; text-indent:-999px;}
-  .slick-dots li.slick-active{ background:rgb(255,214,214); }/*#faf8f8*/
+  .slick-dots li.slick-active{ background:rgb(255,214,214); }
 
   .sliderBtn {display: none;}
   .sliderBtn.on {display: none;}
@@ -163,6 +155,7 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   #section {height:100vh;  }
   
   #section02 { width:1300px; margin:20px auto; padding: 10px; text-align: center; }
+  #section02  h2 {font-family:'Kaisei HarunoUmi',sans-serif ;  font-size:30px; text-align:center; font-weight:normal; color: #000;}
   #section02 li { display:inline-block; width:33.3%;  margin:0 0 70px -4px; vertical-align:top;}
   
   .item { padding:0 5px}
@@ -174,13 +167,13 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   .item .item_info .name2{display:block; margin:15px 0 5px;font-size: 14PX;color:#000; }
   .item .item_info .cart { all:unset; font-size:13px; font-weight: bold; color: #000; text-decoration:underline  solid rgb(230, 130, 130);   transition:0.5s ease; opacity:0; }
 
-  .item:hover .item_img {}
+
   .item:hover .item_info .cart { opacity: 1;}
 
   #section03 {position: relative;}
 
 
-  .story_ban { width:1300px; margin: 20px auto; left: 0;  }
+  .story_ban { margin: 20px auto; left: 0;  }
   .img_box {position:absolute;display: inline-block; top:10%; margin:15px 100px 0 ;   }
   .story_ban .img { display:inline-block;  vertical-align: middle ;   }
   .story_ban .img img {width: 650px;}
@@ -189,7 +182,7 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   .story_ban .img img{ transition:all 0.5s ease;}
 
   
-  .story_ban .ban_txt { float: right; display: inline-block; width:450px; padding:80px 0 0 60px;  box-sizing:border-box;}
+  .story_ban .ban_txt {position: absolute; right: 8%; display: inline-block; width:450px;  }
   .story_ban .kor_tit { color:#000000;font-family: 'Kaisei HarunoUmi',sans-serif ; font-size:35px; margin-bottom:10px;  letter-spacing:0.2px; }
   .story_ban .kor_txt {font-size:16px; color:#6e6d6d; line-height: 28px; margin:30px 0 30px; letter-spacing:-2px;}
   .story_ban .kor_txt_more { background: #f0afaf; color: #fff; width:140px; height:45px; line-height:45px; text-align: center;font-size:14px; }
@@ -197,7 +190,7 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   .story_ban .kor_txt_more:hover { background: #fff; cursor:pointer; color: #f0afaf; border: 1px solid #f0afaf; transition:0.5s}
 
   #section04 {position: relative;}
-  .video a { top:150px; margin: auto;}
+  .video { padding-top: 30px;  margin: auto;}
 
 
 
@@ -207,84 +200,79 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   .img5 img {height: 100vh; width: 50%;}
   .inner {display: inline-block; width: 500px; position: absolute; right: 7%; top:100px; }
   h4,h5,h6{ color:#000000; background-color: #fff; border:none; font-family: 'Kaisei HarunoUmi',sans-serif ; font-size: 23px; padding: 10px;}
-  .box_txt {}
+  
   
   
 } 
   
   
 
-/* 화면 너비가 1025px보다 작을때 
+/*화면 너비가 1025px보다 작을때*/ 
 @media (max-width:1024px){
  
- header {background-color: turquoise;}
+ header {background-color:#f0afaf; margin:auto; }
 
- h1 { position:fixed; top:0; left:0; width:100%;  height:60px;}
- header h1 img {position: absolute;  height: 30px; }
- h3 {position: absolute;top:25px; }
- header #nav {}
+ header #nav {float: right; clear: both;margin-right: 50px; }
  header #nav li {  padding:0 10px;line-height: 75px; }
  header #nav a { color:#080504; font-size:15px;  }
- header #nav a.on { text-decoration:underline 3px solid #fff; }
  header #nav li:nth-of-type(4) {display: none;}
- 
+
+/*슬라이더*/ 
 .slider { position:absolute; width:100%; height: 70%; top:30%;   }
 
 
-
- slick 슬라이더 커스텀
- .slick-arrow { position:absolute; top:30%; border:0; text-indent:-9999px;  z-index:10;  cursor:pointer; }
-
- .slick-dots { position:absolute;  z-index:11; padding-left: 45%; bottom:30%; }
- 
- .sliderBtn {display: none;}
- .sliderBtn.on {display: none;}
+.slick-arrow { position:absolute; top:30%; border:0; text-indent:-9999px;  z-index:10;  cursor:pointer; }
 
 
- 섹션 
+
+/* 섹션 */
 #section {height:100vh;  }
-  
-#section02 { width:850px; margin:20px auto; padding: 10px; text-align: center; }
+h2 {font-size: 25px;}  
+#section02 { width:750px; margin:10px auto; padding: 8px; text-align: center; }
 #section02 li { display:inline-block; width:33.3%;  margin:0 0 70px -4px; vertical-align:top;}
 
 .item { padding:0 5px}
-.item .item_img { text-align:center; transition:0.5s ease;}
-.item .item_img img {width:200px; }
+.item .item_img img {width:150px; }
 .item .item_info{ padding-top:5px; text-align:center; }
-.item .item_info .title{ display:block; font-size:15px; color:rgb(230, 130, 130); font-weight: bold; margin-bottom:10px; }
-.item .item_info .name{ color:#000000; font-size: 14PX; font-weight: bold; }
-.item .item_info .name2{display:block; margin:15px 0 5px;font-size: 14PX;color:#000; }
+.item .item_info .title{ display:block; font-size:15px; margin-bottom:10px; }
+.item .item_info .name{ color:#000000; font-size: 14PX; }
+.item .item_info .name2{display:block; margin:15px 0 5px;font-size: 14px; }
+.item .item_info .cart { all:unset; font-size:13px; font-weight: bold;}
 .item .item_info .cart { all:unset; font-size:13px; font-weight: bold; color: #000; text-decoration:underline  solid rgb(230, 130, 130);   transition:0.5s ease; opacity:0; }
 
-.item:hover .item_img {}
-.item:hover .item_info .cart { opacity: 1;}
 
-#section03 {position: relative;}
+#section03 {}
+.story_ban {}
+
+.img_box {position: absolute; top:5%; left:10%;}
+.story_ban .img_box img { width: 400px;}
 
 
-
-
-.story_ban .ban_txt {position: absolute; left: 90%; width:400px; padding:20px 0 0 0px;  border: 1px solid red;}
-.story_ban .kor_tit {  font-size:30px; margin-bottom:10px;  letter-spacing:0.2px; }
-.story_ban .kor_txt {font-size:15px; color:#6e6d6d; line-height: 28px; margin:10px 0 30px; letter-spacing:-2px;}
-.story_ban .kor_txt_more { background: #f0afaf; color: #fff; width:120px; height:35px; line-height:35px; text-align: center;font-size:13px; }
+.ban_txt {display: block; position: absolute; top:53%; left: 23%; width:300px; padding:20px 0 0 0px; margin-top: 10px;  }
+.story_ban .kor_tit {  font-size:20px; margin-bottom:10px;  letter-spacing:0.2px; }
+.story_ban .kor_txt {font-size:13px; color:#6e6d6d; line-height: 28px; margin:10px 0 30px; letter-spacing:-2px;}
+.story_ban .kor_txt_more { width:80px; height:35px; line-height:35px; text-align: center;font-size:13px; }
 
 
 #section04 {display: none;}
-.video a { top:150px; margin: auto;}
-
-
+video {display: none;}
 
 #section05 {background-color: #fcf2f2; position: relative;}
-
-
+  
+  
 .img5 img {height: 100vh; width: 50%;}
-.inner {display: inline-block; width: 500px; position: absolute; right: 7%; top:100px; }
-h4,h5,h6{ color:#000000; background-color: #fff; border:none; font-family: 'Kaisei HarunoUmi',sans-serif ; font-size: 23px; padding: 10px;}
-.box_txt {}
+.inner {position: absolute;  display: inline-block; width: 40%;top:5%;right: 5%;   }
+#section05 h4{ font-size: 15px;}
+#section05 h5{ font-size: 15px;}
+#section05 h6{ font-size: 15px;}
+.box_txt {font-size: 13px;}
 
 
-}*/
+.back {position: absolute; bottom: 10%; right: 5%; border: none; width: 30px; height: 30px; background-color:#f0afaf; border-radius:50%; padding: 5px; }
+.back a {color: #fff;font-size: 12px; }
+
+.f  {font-size: 12px;}
+}
 
 
 
@@ -301,9 +289,9 @@ header h1 {float: left; width: 20px;  margin-left: 50px; margin-top: 20px; }
 header h1 img {position: absolute;  height: 30px; }
 h3 {position: absolute;top:15px; }
 header #nav {float: right; margin-right: 50px;}
-header #nav li {  padding:0 10px;line-height: 60px; }
-header #nav a { color:#080504; font-size:13px;  }
-header #nav a.on { text-decoration:underline 3px solid rgb(255, 214, 214); }
+header #nav li { padding:0 10px;line-height: 60px; }
+header #nav a { font-size:13px;  }
+
 header #nav li:nth-of-type(4) {display: none;}
 
 /* 슬라이더 */  
@@ -319,7 +307,7 @@ header #nav li:nth-of-type(4) {display: none;}
 .slick-dots { position:absolute;  z-index:11; left:-10% ; bottom:15%; }
 .slick-dots li { float:left; width:5px; height:5px;  border:2px solid rgb(255, 255, 255);  border-radius:50%; margin-right:8px; cursor:pointer;   }
 .slick-dots li button { all:unset; text-indent:-999px;}
-.slick-dots li.slick-active{ background:rgb(255, 255, 255); }/*#faf8f8*/
+
 
 .sliderBtn {display: none;}
 
@@ -328,52 +316,50 @@ header #nav li:nth-of-type(4) {display: none;}
   
 #section02 {width: 100%;  margin:100px auto; padding: 10px; text-align: center; }
 #section02 li {display:inline-block; width:33.3%;  margin:0 0 100px -4px; vertical-align:top; }
-h2 { margin:20px 0 ; font-size: 20px;}
+#section02 h2 { margin:30px 0 ; font-size: 23px;}
 .item { padding:0 5px}
-.item .item_img { text-align:center; transition:0.5s ease;}
+
 .item .item_img img {width:100px; }
 .item .item_info{ padding-top:5px; text-align:center; }
-.item .item_info .title{ display:block; font-size:15px; color:rgb(230, 130, 130); font-weight: bold; margin-bottom:10px; }
-.item .item_info .name{ color:#000000; font-size: 14PX; font-weight: bold; }
-.item .item_info .name2{display:block; margin:15px 0 5px;font-size: 14PX;color:#000; }
+.item .item_info .title{ display:block; font-size:15px;  margin-bottom:10px; }
+.item .item_info .name{ font-size: 14PX;}
+.item .item_info .name2{display:block; margin:15px 0 5px;font-size: 14PX;}
 .item .item_info .cart { all:unset; font-size:13px; font-weight: bold; color: #000; text-decoration:underline  solid rgb(230, 130, 130);   transition:0.5s ease; opacity:0; }
 
 
 
 
 #section03 {position: relative; }
+.img_box {position: absolute; left: 2%;}
 
+.story_ban { }
 
-.story_ban { overflow: hidden; }
-.img_box {position:absolute; top:10%; margin:0 80px 0 ; border: 1px solid red;  }
 
 .story_ban .img img { width: 300px;  }
-.story_ban .img:hover {transform:scale(1.0); opacity:0.8; }
-.story_ban .img { overflow:hidden;}
-.story_ban .img img{ transition:all 0.5s ease;}
 
 
-.story_ban .ban_txt { position: absolute;  width: 300px; padding-top:0 ; padding-left: 0; top:50%; left: 16.5%;border: 1px solid red;  }
-.story_ban .kor_tit {text-align: center; color:#000000;font-family: 'Kaisei HarunoUmi',sans-serif ; font-size:20px;   letter-spacing:0.2px; }
-.story_ban .kor_txt {font-size:14px; color:#6e6d6d; }
-.story_ban .kor_txt_more {margin: 0 auto; background: #f0afaf; color: #fff; width:60px; height:28px; line-height:28px; text-align: center;font-size:12px; }
 
-.story_ban .kor_txt_more:hover { background: #fff; cursor:pointer; color: #f0afaf; border: 1px solid #f0afaf; transition:0.5s}
+
+
+.ban_txt {display: block; position: absolute; left: 3%;   width: 100px; padding-top:0 ; padding-left: 0; top:50%;  }
+.kor_tit {text-align: center;  font-size:15px;   letter-spacing:0.2px; }
+.kor_txt {font-size:14px; text-align: center; }
+.kor_txt_more {font-size:12px;margin:  0 auto; }
+
+
 
 #section04 {display: none;}
 
-
-
-
-#section05 {background-color: #fcf2f2; position: relative;}
-
+#section05 {position: relative;}
 
 .img5 img {height: 100vh; width: 100%;}
-.inner {display: inline-block; width: 300px; right: 15%; position: absolute;  top:10%; }
-h4,h5,h6{ color:#000000; background-color: #fff; border:none; font-family: 'Kaisei HarunoUmi',sans-serif ; font-size: 15px; padding: 10px;}
-.box_txt {font-size: 13px;}
+.inner {position: absolute; top:15%; width: 80%; left: 11%;  }
+#section05 h4{ font-size: 13px; padding: 10px;}
+#section05 h5{ font-size: 13px; padding: 10px;}
+#section05 h6{ font-size: 13px; padding: 10px;}
+.box_txt {font-size: 13px; }
  
-.f {font-size: 10px;}
+.f {font-size: 10px; }
 
 
 
