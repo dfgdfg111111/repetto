@@ -23,18 +23,18 @@ section { height:100vh; margin: auto;  }
 
 
 /* 슬라이더 */
-.slider { position:absolute; width:100%; height:80%; top:160px; display:block;  }
+.slider { position:absolute; width:100%; height:80%; top:160px; display:block; }
 .sliders {position: absolute;  height: 100%;}
 .sliders img {width: 100%;}  
 /*#section01 h1 { font-size:inherit; } 부모요소를 상속받음, h1이 아니라 기본폰트크기*/
 
 
 /*slick 슬라이더 커스텀*/
-.slick-arrow { position:absolute; top:40%; border:0; text-indent:-9999px;  z-index:10;width: 54px; height: 54px; cursor:pointer; }
+.slick-arrow { position:absolute; top:35%; border:0; text-indent:-9999px;  z-index:10;width: 54px; height: 54px; cursor:pointer; }
 .slick-prev {left:20px; background:url('../img/l_btn\ s.png') no-repeat ;  }
 .slick-next{right:20px;  background:url('../img/r_btn\ s.png') no-repeat;  }
 
-.slick-dots { position:relative;  z-index:11; padding-left: 47.5%; bottom:-10px;  }
+.slick-dots { position:relative;  z-index:11; padding-left: 47.5%;   }
 .slick-dots li { float:left; width:10px; height:10px; border:2px solid rgb(255,214,214);  border-radius:50%; margin-right:8px; cursor:pointer;margin: 5px; }
 .slick-dots li button { display: none;}
 .slick-dots li.slick-active{ background:rgb(255,214,214); }/*#faf8f8*/
@@ -70,8 +70,8 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
 #section03 {height: 100vh; position: relative;}
 
 
-  .story_ban {width: 100%; height: 100%; display: block; overflow: hidden;  }
-  .img_box {position:absolute;display: inline-block; margin: 50px ;}
+  .story_ban {width: 100%; height: 100%; display: block; overflow: hidden; }
+  .img_box {position:absolute;display: inline-block; margin: 150px ; }
   
   .story_ban .img:hover {transform:scale(1.0); opacity:0.8; }
   .story_ban .img img{  transition:all 0.5s ease;}
@@ -103,7 +103,7 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   .inner_txt2:hover { background: #f0afaf73; cursor:pointer; transition:0.5s} 
   .inner_txt3:hover { background: #f0afaf73; cursor:pointer; transition:0.5s}
 
-  .back {position: absolute; bottom: 10%; right: 5%; border: none; width: 50px; height: 50px; background-color:#f0afaf; border-radius:50%; padding: 5px; }
+  .back {position: absolute; bottom: 15%; right: 10%; border: none; width: 50px; height: 50px; background-color:#f0afaf; border-radius:50%; padding: 5px; }
   .back a {color: #fff;font-size: 13px; }
   
   .f  {font-size: 15px; text-align: center;}
@@ -218,10 +218,10 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
  header #nav li:nth-of-type(4) {display: none;}
 
 /*슬라이더*/ 
-.slider { position:absolute; width:100%; height: 70%; top:30%;   }
+.slider { position:absolute; width:100%; height: 60%; top:20%;   }
+.sliders img {  width: 100%; height: 400px;}  
 
-
-.slick-arrow { position:absolute; top:30%; border:0; text-indent:-9999px;  z-index:10;  cursor:pointer; }
+.slick-arrow { display: none; }
 
 
 
@@ -242,13 +242,13 @@ h2 {font-size: 25px;}
 
 
 #section03 {}
-.story_ban {}
+
 
 .img_box {position: absolute; top:5%; left:10%;}
 .story_ban .img_box img { width: 400px;}
 
 
-.ban_txt {display: block; position: absolute; top:53%; left: 23%; width:300px; padding:20px 0 0 0px; margin-top: 10px;  }
+.ban_txt {display: block; position: absolute; top:53%; left: 23%; width:300px; }
 .story_ban .kor_tit {  font-size:20px; margin-bottom:10px;  letter-spacing:0.2px; }
 .story_ban .kor_txt {font-size:13px; color:#6e6d6d; line-height: 28px; margin:10px 0 30px; letter-spacing:-2px;}
 .story_ban .kor_txt_more { width:80px; height:35px; line-height:35px; text-align: center;font-size:13px; }
@@ -257,7 +257,7 @@ h2 {font-size: 25px;}
 #section04 {display: none;}
 video {display: none;}
 
-#section05 {background-color: #fcf2f2; position: relative;}
+#section05 {}
   
   
 .img5 img {height: 100vh; width: 50%;}
@@ -268,18 +268,17 @@ video {display: none;}
 .box_txt {font-size: 13px;}
 
 
-.back {position: absolute; bottom: 10%; right: 5%; border: none; width: 30px; height: 30px; background-color:#f0afaf; border-radius:50%; padding: 5px; }
-.back a {color: #fff;font-size: 12px; }
+.back {position: absolute; bottom: 15%; right: 5%;width: 30px; height: 30px;  line-height: 10px; }
+.back a {font-size: 12px; }
 
 .f  {font-size: 12px;}
+
 }
 
 
 
-
-
 /************ 반응형 모바일 **************/
-@media (max-width:768px) {
+@media (max-width:600px) {
 
 body {width: 100%; overflow-x: hidden;}
  /* 헤더 */
@@ -299,20 +298,11 @@ header #nav li:nth-of-type(4) {display: none;}
 .sliders {position: absolute;  height: 100%;  }
 .sliders img {  width: 100%; height: 400px;}  
 
-/* slick 슬라이더 커스텀*/
-.slick-arrow {display: none; }
-.slick-prev {display: none; }
-.slick-next{ display: none;}
-
-.slick-dots { position:absolute;  z-index:11; left:-10% ; bottom:15%; }
-.slick-dots li { float:left; width:5px; height:5px;  border:2px solid rgb(255, 255, 255);  border-radius:50%; margin-right:8px; cursor:pointer;   }
-.slick-dots li button { all:unset; text-indent:-999px;}
-
 
 .sliderBtn {display: none;}
 
 /* 섹션 */ 
-#section {height:100vh;  }
+#section {height:100vh; }
   
 #section02 {width: 100%;  margin:100px auto; padding: 10px; text-align: center; }
 #section02 li {display:inline-block; width:33.3%;  margin:0 0 100px -4px; vertical-align:top; }
@@ -328,7 +318,6 @@ header #nav li:nth-of-type(4) {display: none;}
 
 
 
-
 #section03 {position: relative; }
 .img_box {position: absolute; left: 2%;}
 
@@ -338,13 +327,10 @@ header #nav li:nth-of-type(4) {display: none;}
 .story_ban .img img { width: 300px;  }
 
 
-
-
-
-.ban_txt {display: block; position: absolute; left: 3%;   width: 100px; padding-top:0 ; padding-left: 0; top:50%;  }
-.kor_tit {text-align: center;  font-size:15px;   letter-spacing:0.2px; }
-.kor_txt {font-size:14px; text-align: center; }
-.kor_txt_more {font-size:12px;margin:  0 auto; }
+.ban_txt {display: block; position: absolute;     padding-top:0 ; padding-left: 0; top:50%; width: 200px; }
+.kor_tit {font-size:15px;   letter-spacing:0.2px; }
+.kor_txt {font-size:14px;  width: 300px; }
+.kor_txt_more {font-size:12px;}
 
 
 
@@ -358,6 +344,8 @@ header #nav li:nth-of-type(4) {display: none;}
 #section05 h5{ font-size: 13px; padding: 10px;}
 #section05 h6{ font-size: 13px; padding: 10px;}
 .box_txt {font-size: 13px; }
+
+.back { line-height: 15px;}
  
 .f {font-size: 10px; }
 
