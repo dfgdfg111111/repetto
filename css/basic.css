@@ -10,16 +10,17 @@ body { font-family:'Malgun Gothic','Kaisei HarunoUmi', sans-serif; box-sizing: b
 
 h3 {display: none;}
 
-/* 헤더 */
-header { position:fixed; top:0; left:0; width:100%;background-color:rgb(255, 255, 255);   height:80px; z-index: 1000; }/*rgba(255, 252, 252, 0.7);*/
+section { height:100vh; width: 100%; overflow: hidden;} 
 
-header h1 { float: left; margin-left: 200px; margin-top: 20px;    }
-header #nav { float: right; margin-right:200px; bottom:-10px; }
-header #nav li { float:left; padding:0 30px; line-height:90px;}
+/* 헤더 */
+header { position:fixed; top:0; left:0; width:100%;background-color:rgb(255, 255, 255); height:80px; z-index: 1000; }
+
+header h1 { float: left; margin-left: 200px; margin-top: 20px;}
+header #nav { float: right; margin-right:200px; margin-top: 35px; }
+header #nav li { float:left; padding:0 30px;}   
 header #nav a { color:#080504; font-size:18px; font-family:'Nanumsquare', sans-serif ;}
 header #nav a.on { text-decoration:underline 3px solid rgb(255, 214, 214);}
 
-section { height:100vh; margin: auto;  } 
 
 
 /* 슬라이더 */
@@ -54,9 +55,7 @@ section { height:100vh; margin: auto;  }
 
 /* 섹션 */
 
-section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우저 세로길와 딱 맞게된다*/
-
-#section01 {width: 100% ;height: 100vh;  }
+#section01 {}
 
 #section02 { width:1600px; margin:5px auto; padding: 5px; text-align: center; }
 #section02 h2 { font-family:'Kaisei HarunoUmi',sans-serif ;font-size:40px; text-align:center; font-weight:normal; color: #000; margin-top: 50px;}
@@ -77,18 +76,17 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
  
   .item:hover .item_info .cart { opacity: 1;}
 
-  #section03 {height: 100vh; position: relative;}
+#section03 {position: relative;}
 
 
   .story_ban {width: 100%; height: 100%; display: block; overflow: hidden; }
-  .img_box {position:absolute; top:10%; left: 10%; display:inline-block;  }
-  
+  .img_box {position:absolute; top:10%; left: 10%; }
+  .img_box img {width: 90%; }
   .story_ban .img:hover {transform:scale(1.0); opacity:0.8; }
   .story_ban .img img{  transition:all 0.5s ease;}
   
  
-
-  .ban_txt {position: absolute; right: 12%; top:25%;   width:450px;}
+  .ban_txt {position: absolute; right: 12%; top:25%; width:30%;}
   .kor_tit { color:#000000;font-family: 'Kaisei HarunoUmi',sans-serif ; font-size:35px; margin-bottom:10px;  letter-spacing:0.2px; }
   .kor_txt {font-size:17px; color:#6e6d6d; line-height: 28px; margin:30px 0 30px; letter-spacing:-2px;}
   .kor_txt_more { background: #f0afaf; color: #fff; width:140px; height:45px; line-height:45px; text-align: center;font-size:14px; }
@@ -97,7 +95,7 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   
   
 #section04 {  height: 100vh;}
-  .video { text-align: center; padding: 100px; }
+  .video { width: 100%; text-align: center; margin-top: 2%;}
 
 #section05 {background-color: #fcf2f2; position: relative;}
   
@@ -135,11 +133,9 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   header { position:fixed; top:0; left:0; width:100%;background-color:#f0afaf;   height:80px; }/*rgba(255, 252, 252, 0.7);*/
   
   header h1 {display: none;}
-  
-
-  
-  header #nav {float: right;clear: both; margin-right: 100px; }
-  header #nav li {position: relative; padding:0 18px; line-height:75px;}
+   
+  header #nav {float: right;clear: both; margin-right: 100px;margin-top: 30px; }
+  header #nav li {position: relative; padding:0 18px;}
   header #nav a { color:#080504; font-size:16px; }
   header #nav a.on { color:none; text-decoration:underline 3px solid #fff; }
   
@@ -183,19 +179,18 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
 
   .item:hover .item_info .cart { opacity: 1;}
 
-  #section03 {position: relative;}
+  #section03 {position: relative;overflow: hidden;}
 
 
-  .story_ban { margin: 20px auto; left: 0;  }
-  .img_box {position:absolute;display: inline-block; top:10%; margin:15px 100px 0 ;   }
-  .story_ban .img { display:inline-block;  vertical-align: middle ;   }
-  .story_ban .img img {width: 650px;}
+  .img_box {position:absolute;top:15%; left:5%;  margin: 10px 30px 0 ;   }
+  .img_box img {width: 60%;}
+  .story_ban .img img {width: 60%;transition:all 0.5s ease;}
   .story_ban .img:hover {transform:scale(1.0); opacity:0.8; }
-  .story_ban .img { overflow:hidden;}
-  .story_ban .img img{ transition:all 0.5s ease;}
+  
+  
 
   
-  .story_ban .ban_txt {position: absolute; right: 8%; display: inline-block; width:450px;  }
+  .story_ban .ban_txt {position: absolute; right: 8%; width:40%;  }
   .story_ban .kor_tit { color:#000000;font-family: 'Kaisei HarunoUmi',sans-serif ; font-size:35px; margin-bottom:10px;  letter-spacing:0.2px; }
   .story_ban .kor_txt {font-size:16px; color:#6e6d6d; line-height: 28px; margin:30px 0 30px; letter-spacing:-2px;}
   .story_ban .kor_txt_more { background: #f0afaf; color: #fff; width:140px; height:45px; line-height:45px; text-align: center;font-size:14px; }
@@ -203,7 +198,7 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
   .story_ban .kor_txt_more:hover { background: #fff; cursor:pointer; color: #f0afaf; border: 1px solid #f0afaf; transition:0.5s}
 
   #section04 {position: relative;}
-  .video { padding-top: 30px;  margin: auto;}
+  .video {  margin: auto;}
 
 
 
@@ -223,10 +218,10 @@ section { height: 100vh;  } /* height:100vh;섹션의 세로길이는 브라우�
 /*화면 너비가 1025px보다 작을때*/ 
 @media (max-width:1024px){
  
- header {background-color:#f0afaf; margin:auto; }
+ header {background-color:#f0afaf; }
 
- header #nav {float: right; clear: both;margin-right: 50px; }
- header #nav li {  padding:0 10px;line-height: 75px; }
+ header #nav {float: right; clear: both;margin-right: 50px;}
+ header #nav li {  padding:0 10px;}
  header #nav a { color:#080504; font-size:15px;  }
  header #nav li:nth-of-type(4) {display: none;}
 
@@ -255,13 +250,15 @@ h2 {font-size: 25px;}
 
 
 #section03 {}
+.img_box {position: absolute;width: 80%; top:15%; }
+.img_box img {position: absolute;width: 50%;}
+
+.ban_txt {display: block; position: absolute;top:18%;  width: 80%; }
+.kor_tit {font-size:15px; letter-spacing:0.2px; }
+.kor_txt {font-size:14px; }
+.kor_txt_more {font-size:12px;}
 
 
-.img_box {position: absolute; top:5%; left:10%;}
-.story_ban .img_box img { width: 400px;}
-
-
-.ban_txt {display: block; position: absolute; top:53%; left: 23%; width:300px; }
 .story_ban .kor_tit {  font-size:20px; margin-bottom:10px;  letter-spacing:0.2px; }
 .story_ban .kor_txt {font-size:13px; color:#6e6d6d; line-height: 28px; margin:10px 0 30px; letter-spacing:-2px;}
 .story_ban .kor_txt_more { width:80px; height:35px; line-height:35px; text-align: center;font-size:13px; }
@@ -300,8 +297,8 @@ header { position:fixed; top:0; left:0; width:100%;background-color:#f0afaf;   h
 header h1 {float: left; width: 20px;  margin-left: 50px; margin-top: 20px; }
 header h1 img {position: absolute;  height: 30px; }
 h3 {position: absolute;top:15px; }
-header #nav {float: right; margin-right: 50px;}
-header #nav li { padding:0 10px;line-height: 60px; }
+header #nav {float: right; margin-right: 50px;margin-top: 20px;}
+header #nav li { padding:0 10px;}
 header #nav a { font-size:13px;  }
 
 header #nav li:nth-of-type(4) {display: none;}
@@ -315,7 +312,7 @@ header #nav li:nth-of-type(4) {display: none;}
 .sliderBtn {display: none;}
 
 /* 섹션 */ 
-#section {height:100vh; }
+
   
 #section02 {width: 100%;  margin:100px auto; padding: 10px; text-align: center; }
 #section02 li {display:inline-block; width:33.3%;  margin:0 0 100px -4px; vertical-align:top; }
@@ -330,20 +327,13 @@ header #nav li:nth-of-type(4) {display: none;}
 .item .item_info .cart { all:unset; font-size:13px; font-weight: bold; color: #000; text-decoration:underline  solid rgb(230, 130, 130);   transition:0.5s ease; opacity:0; }
 
 
-
-#section03 {position: relative;width: 100%; margin: auto; }
-.img_box {position: absolute; left: 2%;}
-
-.story_ban { }
-
-
-.story_ban .img img { width: 300px;  }
-
-
-.ban_txt {display: block; position: absolute;     padding-top:0 ; padding-left: 0; top:50%; width: 200px; }
-.kor_tit {font-size:15px;   letter-spacing:0.2px; }
-.kor_txt {font-size:14px;  max-width: 300px; }
-.kor_txt_more {font-size:12px;}
+#section03 {position: relative;}
+.img_box {position: absolute; top:3%; left: 50%; transform: translate(-50%);}
+.img_box img {width: 80%;}
+.ban_txt {position: absolute;top:45%; width: 90%;  left: 50%; transform: translate(-50%); }
+.kor_tit {font-size:15px; letter-spacing:0.2px; }
+.kor_txt {font-size:14px; }
+.kor_txt_more {font-size:12px; }
 
 
 
