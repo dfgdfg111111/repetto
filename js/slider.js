@@ -10,7 +10,7 @@ $(document).ready(function(){
         dots:true,              //페이지버튼
         //fade:true,            //투명도로 전환
         //easing:'swing',
-        initialSlide:3,         //처음 시작하는 이미지(0부터 순서를 센다)
+        initialSlide:2,         //처음 시작하는 이미지(0부터 순서를 센다)
         pauseOnFocus:false,     //마우스를 클릭하면 멈춤
         pauseOnHover:false,     //마우스를 울려놓으면 멈춤
         speed:500,               //애니메이션(이미지 전환상태 속도) 스피드
